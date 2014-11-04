@@ -229,11 +229,11 @@ class ExactInference(InferenceModule):
         """
         "*** YOUR CODE HERE ***"
         newBeliefs = util.Counter()
-        for p in self.legalPositions:
-            newPosDist = self.getPositionDistribution(self.setGhostPosition(gameState, p))
-            oldBelief = self.beliefs[p]
+        for myPos in self.legalPositions:
+            newPosDist = self.getPositionDistribution(self.setGhostPosition(gameState, myPos))
+            oldBelief = self.beliefs[myPos]
             for newPos in newPosDist.keys():
-                newBeliefs[newPos] += oldBelief*newPosDist[newPos]
+                newBeliefs[newPos] += oldBelief * newPosDist[newPos]
 
         self.beliefs = newBeliefs
 
